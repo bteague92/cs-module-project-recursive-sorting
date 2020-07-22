@@ -29,33 +29,14 @@ def merge(arrA, arrB):
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort(arr):
     # Your code here
-    if len(arr)>1:
-        mid = len(arr)//2
-        lefthalf = arr[:mid]
-        righthalf = arr[mid:]
 
-        merge_sort(lefthalf)
-        merge_sort(righthalf)
-        i=j=k=0       
-        while i < len(lefthalf) and j < len(righthalf):
-            if lefthalf[i] < righthalf[j]:
-                arr[k]=lefthalf[i]
-                i=i+1
-            else:
-                arr[k]=righthalf[j]
-                j=j+1
-            k=k+1
-
-        while i < len(lefthalf):
-            arr[k]=lefthalf[i]
-            i=i+1
-            k=k+1
-
-        while j < len(righthalf):
-            arr[k]=righthalf[j]
-            j=j+1
-            k=k+1
-    # print("Merging ",arr)
+    if len(arr) > 1:
+        #split left until 1 item
+        left = merge_sort(arr[:len(arr) // 2])
+        #split right until 1 item
+        right = merge_sort(arr[len(arr) // 2:])
+        #merge all
+        arr = merge(left, right)
 
     return arr
 
@@ -66,9 +47,9 @@ def merge_sort(arr):
 # or data structures; it can only re-use the memory it was given as input
 def merge_in_place(arr, start, mid, end):
     # Your code here
-    return arr
+    pass
 
 
 def merge_sort_in_place(arr, l, r):
     # Your code here
-    return arr
+    pass
